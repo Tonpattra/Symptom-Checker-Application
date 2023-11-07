@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey</title>
+</head>
+<body>
+    <form method="post">
+        <label for="question">{{ prompt }}</label><br>
+        <input type="hidden" name="index" value="{{ index }}">
+        
+        {% if prompt == "How old are you?" %}
+            <input type="number" name="answer" min="0" max="120" required><br>
+        {% elif prompt == "What is your gender?" %}
+            <input type="text" name="answer" required><br>
+        {% else %}
+            <input type="radio" id="yes" name="answer" value="Yes" required>
+            <label for="yes">Yes</label><br>
+            <input type="radio" id="no" name="answer" value="No">
+            <label for="no">No</label><br>
+        {% endif %}
+        
+        <input type="submit" value="Next">
+    </form>
+</body>
+</html>

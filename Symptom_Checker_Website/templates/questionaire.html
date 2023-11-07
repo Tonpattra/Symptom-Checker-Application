@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                background-color: #f0f0f0;
+            }
+            form {
+                margin: 10px;
+            }
+            label {
+                font-weight: bold;
+            }
+            input[type="submit"] {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+            a {
+                text-decoration: none;
+                color: #007bff;
+                display: block;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>{{ quest }}</p>
+        <form method="POST" action="/question_disease">
+            {% if gender == 'No' and age == 'No' %}
+                <label for="yes">Yes</label>
+                <input type="radio" name="response" value="yes" id="yes">
+                <label for="no">No</label>
+                <input type="radio" name="response" value="no" id="no">
+            {% endif %}
+            {% if gender == 'Yes' %}
+                <label for="male">Male</label>
+                <input type="radio" name="gender_response" value="male" id="male">
+                <label for="female">Female</label>
+                <input type="radio" name="gender_response" value="female" id="female">
+            {% endif %}
+            {% if age == 'Yes' %}
+                <label for="age">Age:</label>
+                <input type="text" name="age" id="age">
+            {% endif %}
+            <input type="submit" value="Submit">
+        </form>
+        <form method="POST" action="/test_send">
+            <input type="submit" value="Submit">
+
+        </form>
+        <a href="/">Back to Home</a>
+    </body>
+</html>

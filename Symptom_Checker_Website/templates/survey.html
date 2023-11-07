@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        form {
+            margin: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <label for="question">{{ prompt }}</label><br>
+        <input type="hidden" name="index" value="{{ index }}">
+        
+        {% if prompt == "How old are you?" %}
+            <input type="number" name="answer" min="0" max="120" required><br>
+        {% elif prompt == "What is your gender?" %}
+            <input type="radio" id="male" name="answer" value="0" required>
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="answer" value="1">
+            <label for="female">Female</label><br>
+        {% else %}
+            <input type="radio" id="yes" name="answer" value="1" required>
+            <label for="yes">Yes</label><br>
+            <input type="radio" id="no" name="answer" value="0">
+            <label for="no">No</label><br>
+        {% endif %}
+        
+        <input type="submit" value="Next">
+    </form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find Nearest Hospital</title>
+</head>
+<body>
+  <h1>Find Nearest Hospital</h1>
+  <p>Your nearest hospital:</p>
+  <div id="hospital-info"></div>
+
+  <script>
+    function initMap() {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var userLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          var map = new google.maps.Map(document.getElementById("hospital-info"), {
+            center: userLocation,
+            zoom: 15
+          });
+
+          var service = new google.maps.places.PlacesService(map);
+
+          service.nearbySearch({
+            location: userLocation,
+            radius: 5000,
+            type: "hospital"
+          }, function(results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+              if (results.length > 0) {
+                var hospital = results[0];
+                var hospitalInfo = `<strong>${hospital.name}</strong><br>${hospital.vicinity}`;
+                document.getElementById("hospital-info").innerHTML = hospitalInfo;
+              } else {
+                document.getElementById("hospital-info").innerHTML = "No hospitals found nearby.";
+              }
+            } else {
+              document.getElementById("hospital-info").innerHTML = "Error: Unable to retrieve hospital information.";
+            }
+          });
+        }, function(error) {
+          document.getElementById("hospital-info").innerHTML = "Error: Unable to determine your location.";
+        });
+      } else {
+        document.getElementById("hospital-info").innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+  </script>
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&libraries=places&callback=initMap"></script>
+</body>
+</html>
