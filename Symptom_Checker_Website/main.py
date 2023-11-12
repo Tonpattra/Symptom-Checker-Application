@@ -3,6 +3,8 @@ import pickle as pkl
 import numpy as np
 import json
 import requests
+from configuration import *
+
 
 question_lung = json.load(open('./data/lung_question.json', 'r'))
 num_quest_lung = len(question_lung)
@@ -14,7 +16,7 @@ number_symp = len(symptom)
 age = 'No'
 gender = 'No'
 web_app = Flask(__name__) 
-web_app.config['GOOGLE_API_KEY'] = 'wait_for_API_complete ja'
+web_app.config['GOOGLE_API_KEY'] = google_api
 
 
 @web_app.route('/')
@@ -63,7 +65,7 @@ def survey():
                                    index=next_index)
         else:
             print(answers)
-            response = requests.post('http://lung-cancer-services:5000/process', json=answers)
+            response = requests.post(f'http://{lung_cancer_web}:{str(port_lung)}/process', json=answers)
             return f"<h3>You has a chances to be a lung cancer {response.json()['Cancer']} percent</h3>"
 
     first_question = questions[0]
@@ -72,4 +74,4 @@ def survey():
                            index=0)
 
 if __name__ == '__main__':
-    web_app.run(debug=False, host='0.0.0.0', port=800)
+    web_app.run(debug=False, host='0.0.0.0', port=port_website)
