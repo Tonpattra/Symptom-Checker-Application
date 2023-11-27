@@ -13,14 +13,15 @@ services:
         context: ./Classification_services/lung-cancer
       ports:
       - "5000:5000"
+  42-disease-services:
+      build:
+        context: ./Classification_services/42-disease
+      ports:
+      - "8080:8080"
+
   # ml-flow-model:
   #   build:
   #     context: ./ML_flow
   #   volumes:
   #     - ./ML_flow:/app
 
-  #   42-disease-services:
-  #     build:
-  #       context: ./Classification_service/42-disease
-  #     volumes:
-  #     - ./Classification_service/42-disease:/app

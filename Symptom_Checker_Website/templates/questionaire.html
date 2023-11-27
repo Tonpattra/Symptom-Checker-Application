@@ -29,30 +29,96 @@
         </style>
     </head>
     <body>
-        <p>{{ quest }}</p>
-        <form method="POST" action="/question_disease">
-            {% if gender == 'No' and age == 'No' %}
-                <label for="yes">Yes</label>
-                <input type="radio" name="response" value="yes" id="yes">
-                <label for="no">No</label>
-                <input type="radio" name="response" value="no" id="no">
-            {% endif %}
-            {% if gender == 'Yes' %}
-                <label for="male">Male</label>
-                <input type="radio" name="gender_response" value="male" id="male">
-                <label for="female">Female</label>
-                <input type="radio" name="gender_response" value="female" id="female">
-            {% endif %}
-            {% if age == 'Yes' %}
-                <label for="age">Age:</label>
-                <input type="text" name="age" id="age">
-            {% endif %}
-            <input type="submit" value="Submit">
-        </form>
-        <form method="POST" action="/test_send">
-            <input type="submit" value="Submit">
+        {% if type_variable == 'list' %}
+            <form method="POST" action="/question_disease">
+                {% set counter = 0 %}
+                {% for questions in quest %}
+                <p>{{ questions }}</p>
+                <label for="yes_{{loop.index0}}">Yes</label>
+                <input type="radio" name="response_{{loop.index0}}" value="1" id="yes_{{loop.index0}}" required>
+                <label for="no_{{loop.index0}}">No</label>
+                <input type="radio" name="response_{{loop.index0}}" value="0" id="no_{{loop.index0}}">
+                {% set counter = counter + 1 %}
+                {% endfor %}
+                <input type="hidden" name="first" value="Some"><br>
+                <input type="submit" value="Submit">
+            </form>
 
-        </form>
+        {% else %}
+            <form method="POST" action="/question_disease">
+                <p>{{ quest }}</p>
+                <label for="yes">Yes</label>
+                <input type="radio" name="response" value="1" id="yes" required>
+                <label for="no">No</label>
+                <input type="radio" name="response" value="0" id="no">
+                <input type="hidden" name="first" value="Some"><br>
+                <input type="submit" value="Submit">
+
+            </form>
+        {% endif %}    
+        <!-- {% if questions is iterable and not questions is string %}
+            <form method="POST" action="/question_disease">
+                {% set counter = 0 %}
+                {% for questions in quest %}
+                <p>{{ questions }}</p>
+                <label for="yes_{{counter}}">Yes</label>
+                <input type="checkbox" name="response_{{counter}}" value="1" id="yes_{{counter}}" required>
+                <label for="no_{{counter}}">No</label>
+                <input type="checkbox" name="response_{{counter}}" value="0" id="no_{{counter}}">
+                {% set counter = counter + 1 %}
+                {% endfor %}
+                <input type="hidden" name="first" value="Some">
+                <input type="submit" value="Submit">
+            </form>
+        {% else %}
+            <form method="POST" action="/question_disease">
+                <p>{{ quest }}</p>
+                <label for="yes">Yes</label>
+                <input type="checkbox" name="response" value="1" id="yes" >
+                <label for="no">No</label>
+                <input type="checkbox" name="response" value="0" id="no">
+                <input type="hidden" name="first" value="Some">
+                <input type="submit" value="Submit">
+
+            </form>
+        {% endif %} -->
+        
+        <script>
+            document.getElementById('questionForm').onsubmit = function(event) {
+                var checkboxes = document.getElementsByName('response');
+                var checkedOne = Array.prototype.slice.call(checkboxes).some(x => x.checked);
+                if (!checkedOne) {
+                    document.getElementById('warningMessage').style.display = 'block';
+                    event.preventDefault(); // Prevent form submission
+                }
+            };
+    
+            function onlyOneCheckbox(checkbox) {
+                var checkboxes = document.getElementsByName('response');
+                checkboxes.forEach((item) => {
+                    if (item !== checkbox) item.checked = false;
+                });
+                // Hide warning message if any checkbox is checked
+                document.getElementById('warningMessage').style.display = 'none';
+            }
+        </script>
+        
         <a href="/">Back to Home</a>
     </body>
+    <!-- <body>
+        <form method="POST" action="/question_disease">
+            {% set counter = 0 %}
+            {% for quest in questions %}
+            <p>{{ quest }}</p>
+            <label for="yes_{{counter}}">Yes</label>
+            <input type="radio" name="response_{{counter}}" value="1" id="yes_{{counter}}" required>
+            <label for="no_{{counter}}">No</label>
+            <input type="radio" name="response_{{counter}}" value="0" id="no_{{counter}}">
+            {% set counter = counter + 1 %}
+            {% endfor %}
+            <input type="hidden" name="first" value="Some">
+            <input type="submit" value="Submit">
+        </form>
+        <a href="/">Back to Home</a>
+    </body> -->
 </html>

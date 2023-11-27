@@ -28,12 +28,12 @@
 </head>
 <body>
     <h1>Welcome to the Symptom Checker</h1>
-    <form method="GET" action="/question_disease">
+    <form method="POST" action="/question_disease">
         <label>42 Disease</label>
-        <input type="hidden" name="disease" value="Yes">
+        <input type="hidden" name="first" value="Yes">
         <input type="submit" value="Click">
     </form>
-    <form method="GET" action="/web_test">
+    <form method="GET" action="/question_lung">
         <label>Lung Symptom</label>
         <input type="hidden" name="disease" value="No">
         <input type="submit" value="Click">
@@ -42,9 +42,9 @@
         <label>Find Hospital</label>
         <input type="submit" value="Click">
     </form>
-    <form action="/web_test">
+    <!-- <form action="/web_test">
         <label>testl</label>
         <input type="submit" value="Click">
-    </form>
+    </form> -->
 </body>
 </html>

@@ -5,7 +5,9 @@ from keras.models import load_model
 import json
 import numpy as np
 import os
+import warnings
 
+warnings.filterwarnings("ignore")
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 model_cancer = load_model('./model/my_model.h5')
 

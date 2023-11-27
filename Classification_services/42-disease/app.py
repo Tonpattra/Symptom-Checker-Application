@@ -5,7 +5,9 @@ import json
 import numpy as np
 import os
 import random
+import warnings
 
+warnings.filterwarnings("ignore")
 
 with open("models/disease_predictor.pkl", 'rb') as f :
     clf = pickle.load(f)
