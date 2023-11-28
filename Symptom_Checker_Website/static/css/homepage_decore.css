@@ -1,0 +1,420 @@
+.frame11-layout2-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.container {
+  width: 100%;
+  max-width: 1920px; /* Ensures that the container does not become too wide on large screens */
+  margin: 0 auto; /* Centers the container */
+}
+
+.content {
+  padding: 2%;
+}
+.frame11-layout2-frame11-layout2 {
+  gap: 40px;
+  width: 100%;
+  height: 824px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(0, 0, 0, 1);
+  border-style: solid;
+  border-width: 5px;
+  background-color: var(--dl-color-default-darkbackgroundcolor);
+}
+.frame11-layout2-colmd6 {
+  gap: 30px;
+  top: 172px;
+  left: 147px;
+  width: 573px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+.frame11-layout2-text {
+  color: var(--dl-color-default-lighttextcolor);
+  width: 542px;
+  height: auto;
+  text-align: left;
+  line-height: 80px;
+}
+.frame11-layout2-text02 {
+  color: var(--dl-color-default-lighttextcolor);
+  width: 469px;
+  height: auto;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 700;
+  line-height: 30px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame11-layout2-cta {
+  gap: 10px;
+  display: flex;
+  align-items: flex-start;
+}
+.frame11-layout2-button-mdsec {
+  gap: 10px;
+  display: flex;
+  padding: 15px 40px;
+  overflow: hidden;
+  align-items: center;
+  border-radius: 5px;
+  flex-direction: column;
+  background-color: var(--dl-color-default-primarycolor);
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+}
+
+.frame11-layout2-button-mdsec:hover {
+  /* background-color: #4CAF50; Change background color on hover */
+  transform: scale(1.05); /* Slightly increase the size */
+}
+.frame11-layout2-text09 {
+  color: var(--dl-color-default-lighttextcolor);
+  height: auto;
+  font-size: 14px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 22px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame11-layout2-button-mdsec1 {
+  gap: 10px;
+  display: flex;
+  padding: 15px 40px;
+  overflow: hidden;
+  align-items: center;
+  border-color: rgba(252, 114, 77, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  flex-direction: column;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+}
+
+.frame11-layout2-button-mdsec1:hover {
+  background-color: #ffeedd; /* Example: change background color on hover */
+  border-color: #fa8072; /* Example: change border color on hover */
+  transform: scale(1.05); /* Slightly increase the size */
+}
+.frame11-layout2-text11 {
+  color: var(--dl-color-default-lighttextcolor);
+  height: auto;
+  text-align: center;
+  line-height: 22px;
+}
+.frame11-layout2-row {
+  gap: 30px;
+  top: 246px;
+  left: 678px;
+  width: 696px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+}
+.frame11-layout2-colmd4 {
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+.frame11-layout2-carditemsec {
+  width: 333px;
+  display: flex;
+  padding: 25px;
+  overflow: hidden;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 9px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+.frame11-layout2-flexrow {
+  gap: 20px;
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+}
+.frame11-layout2-icnarrowrighticnxs {
+  width: 9px;
+  height: 16px;
+}
+.frame11-layout2-div {
+  gap: 5px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.frame11-layout2-text13 {
+  color: var(--dl-color-default-textcolor);
+  height: auto;
+  font-size: 16px;
+  font-style: Regular;
+  text-align: left;
+  font-family: ABeeZee;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame11-layout2-text15 {
+  color: var(--dl-color-default-secondtextcolor);
+  height: auto;
+  font-size: 14px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame11-layout2-colmd41 {
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+.frame11-layout2-carditemsec1 {
+  width: 333px;
+  display: flex;
+  padding: 25px;
+  overflow: hidden;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 9px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+.frame11-layout2-flexrow1 {
+  gap: 20px;
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+}
+.frame11-layout2-icnarrowrighticnxs1 {
+  width: 9px;
+  height: 16px;
+}
+.frame11-layout2-div1 {
+  gap: 5px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.frame11-layout2-text20 {
+  color: var(--dl-color-default-textcolor);
+  height: auto;
+  font-size: 16px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame11-layout2-text22 {
+  color: var(--dl-color-default-secondtextcolor);
+  height: auto;
+  font-size: 14px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame11-layout2-row1 {
+  gap: 30px;
+  top: 438px;
+  left: 678px;
+  width: 696px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  
+}
+
+.frame11-layout2-row1-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.frame11-layout2-colmd42 {
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.frame11-layout2-colmd4:hover {
+  /* Define hover effect here */
+  background-color: #f0f0f0; /* Example: change background color */
+  transform: scale(1.05); /* Example: slightly increase size */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.frame11-layout2-colmd41:hover {
+  /* Define hover effect here */
+  background-color: #f0f0f0; /* Example: change background color */
+  transform: scale(1.05); /* Example: slightly increase size */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.frame11-layout2-colmd42:hover {
+  /* Define hover effect here */
+  background-color: #f0f0f0; /* Example: change background color */
+  transform: scale(1.05); /* Example: slightly increase size */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.frame11-layout2-colmd43:hover {
+  /* Define hover effect here */
+  background-color: #f0f0f0; /* Example: change background color */
+  transform: scale(1.05); /* Example: slightly increase size */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.frame11-layout2-carditemsec2 {
+  width: 333px;
+  display: flex;
+  padding: 25px;
+  overflow: hidden;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 9px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame11-layout2-colmd42:hover .frame11-layout2-carditemsec2 {
+  border-radius: 12px; /* Increased radius on hover */
+}
+.frame11-layout2-flexrow2 {
+  gap: 20px;
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+}
+.frame11-layout2-icnarrowrighticnxs2 {
+  width: 9px;
+  height: 16px;
+}
+.frame11-layout2-div2 {
+  gap: 5px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.frame11-layout2-text27 {
+  color: var(--dl-color-default-textcolor);
+  height: auto;
+  font-size: 16px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame11-layout2-text29 {
+  color: var(--dl-color-default-secondtextcolor);
+  height: auto;
+  font-size: 14px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame11-layout2-colmd43 {
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+.frame11-layout2-carditemsec3 {
+  width: 333px;
+  display: flex;
+  padding: 25px;
+  overflow: hidden;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 9px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+.frame11-layout2-flexrow3 {
+  gap: 20px;
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+}
+.frame11-layout2-icnarrowrighticnxs3 {
+  width: 9px;
+  height: 16px;
+}
+.frame11-layout2-div3 {
+  gap: 5px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.frame11-layout2-text34 {
+  color: var(--dl-color-default-textcolor);
+  height: auto;
+  font-size: 16px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame11-layout2-text36 {
+  color: var(--dl-color-default-secondtextcolor);
+  height: auto;
+  font-size: 14px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}

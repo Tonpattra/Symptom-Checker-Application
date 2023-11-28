@@ -1,0 +1,136 @@
+.frame11-layout3-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.frame11-layout3-frame11-layout3 {
+  width: 100%;
+  height: 771px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  background-color: var(--dl-color-default-darkbackgroundcolor);
+}
+.frame11-layout3-container1 {
+  gap: 80px;
+  top: -87px;
+  left: 233px;
+  width: 1008px;
+  height: 239px;
+  display: flex;
+  padding: 160px 0;
+  overflow: hidden;
+  position: absolute;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.frame11-layout3-row {
+  width: 692px;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.frame11-layout3-maincontent {
+  gap: 10px;
+  width: 691px;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.frame11-layout3-text {
+  color: var(--dl-color-default-lighttextcolor);
+  height: auto;
+  text-align: center;
+  line-height: 50px;
+}
+.frame11-layout3-asec {
+  gap: 10px;
+  left: 718px;
+  width: 65px;
+  bottom: 143px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: center;
+}
+.frame11-layout3-iconarrownext {
+  width: 9px;
+  height: 16px;
+}
+.frame11-layout3-text02 {
+  color: var(--dl-color-default-primarytextcolor);
+  height: auto;
+  font-size: 18px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Montserrat;
+  font-weight: 400;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame11-layout3-text04 {
+  top: 492px;
+  left: 357px;
+  color: rgba(217, 217, 217, 1);
+  width: 759px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: center;
+  font-family: ABeeZee;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame11-layout3-text09 {
+  top: 152px;
+  left: 343px;
+  color: rgba(252, 254, 255, 1);
+  width: 256px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Regular;
+  text-align: center;
+  font-family: ABeeZee;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame11-layout3-ellipse9 {
+  top: 210px;
+  left: 599px;
+  width: 260px;
+  height: 244px;
+  position: absolute;
+}
+.frame11-layout3-text11 {
+  top: 298px;
+  left: 602px;
+  color: rgba(13, 105, 129, 1);
+  width: 262px;
+  height: auto;
+  position: absolute;
+  font-size: 64px;
+  font-style: Regular;
+  text-align: center;
+  font-family: ABeeZee;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}

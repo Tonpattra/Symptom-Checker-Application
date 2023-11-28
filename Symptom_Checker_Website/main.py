@@ -23,7 +23,7 @@ temp = {}
 
 @web_app.route('/')
 def home() :
-    return render_template('home.html')
+    return render_template('homepage.html')
 
 @web_app.route('/question_disease', methods=['GET', 'POST'])
 def disease() :
@@ -79,15 +79,16 @@ def cancer():
 
         if next_index < len(questions):
             next_question = questions[next_index]
-            return render_template('lung_cancer.html', 
+            return render_template('Question.html', 
                                    prompt=question_lung[next_question],
                                    index=next_index)
         else:
             print(answers)
             response = requests.post(f'http://{lung_cancer_web}:{str(port_lung)}/process', json=answers)
-            return f"<h3>You has a chances to be a lung cancer {response.json()['Cancer']} percent</h3>"
+            return render_template('result.html', percentag = response.json()['Cancer'])
+            # return f"<h3>You has a chances to be a lung cancer {response.json()['Cancer']} percent</h3>"
     first_question = questions[0]
-    return render_template('lung_cancer.html', 
+    return render_template('Question.html', 
                            prompt=question_lung[first_question],
                            index=0)
 
@@ -96,4 +97,4 @@ def find_hospital() :
     return render_template('hospital.html', google_api_key=web_app.config['GOOGLE_API_KEY'])
 
 if __name__ == '__main__':
-    web_app.run(debug=False, host='0.0.0.0', port=port_website)
+    web_app.run(debug=True, host='0.0.0.0', port=port_website)
