@@ -96,8 +96,8 @@
           <form id="disease" method="POST" action="/question_disease" style="display: none;">
             <input type="hidden" name="first" value="Yes">
           </form>
-          <form id="hospital_form" method="POST" action="/find_hospital" style="display: none;">
-            <input type="hidden" name="disease" value="No">
+          <form id="knowledge_form" method="POST" action="/document" style="display: none;">
+            <input type="hidden" name="page" value="1">
           </form>
 
           <div class="frame11-layout2-row">
@@ -204,7 +204,7 @@
     <script>
 
       document.querySelector('.frame11-layout2-colmd4').addEventListener('click', function() {
-        document.getElementById('hospital_form').submit();
+        document.getElementById('knowledge_form').submit();
       });
       document.querySelector('.frame11-layout2-colmd41').addEventListener('click', function() {
         document.getElementById('disease').submit();

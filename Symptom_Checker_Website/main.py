@@ -29,31 +29,18 @@ def home() :
 def disease() :
     global temp
     first_time = request.form['first']
-    yes_count = 0
-    mean = 0
-    sum = 0
-    try :
-        yes_count = 0
-        sum = 0
-        for key, value in request.form.items():
-            if key.startswith('response') :
-                sum += 1
-                if  value == '1':
-                    yes_count += 1
-        mean = yes_count/sum             
-    except :
-        pass            
 
     if first_time == 'Yes' :
         with open("./data/reset_state.json", "r") as file: #for next state request
             data_json = json.load(file)
+            
     else :
-        data = f"""{{"current_node": {temp['current_node']},"answer": {int(mean)}}}"""
+        data = f"""{{"current_node": {temp['current_node']},"answer": {request.form['response']}}}"""
         data_json = json.loads(data)
-
     url = f'http://{disease_host}:{disease_port}/decision_tree'
     response = requests.post(url, json=data_json)
     temp = response.json()
+    # print(temp)
     try : 
         if int(temp['Question']) == 0 :
             responses = temp['Answer']  
@@ -63,10 +50,17 @@ def disease() :
     except :
         responses = temp['Question']
     type_var = type(responses).__name__
+    
+    if type_var == "str" :
+        question = f"Do you have {responses}"
 
-    return render_template('questionaire.html' , 
-                           quest = responses,
-                           type_variable = type_var)
+    else :
+        question = f"Do you have one of these symptom \t ( {', '.join(responses)} )"    
+
+
+    return render_template('Question_disease.html' , 
+                           prompt = question)
+                        #    type_variable = type_var)
 
 @web_app.route('/question_lung', methods=['GET', 'POST'])
 def cancer():
@@ -95,6 +89,13 @@ def cancer():
 @web_app.route('/find_hospital', methods=['GET', 'POST'])
 def find_hospital() :
     return render_template('hospital.html', google_api_key=web_app.config['GOOGLE_API_KEY'])
+
+@web_app.route('/document', methods=['GET', 'POST'])
+def knowledge() :
+    if request.form['page'] == '1' :
+        return render_template('document.html')
+    else :
+        return render_template('document.html')
 
 if __name__ == '__main__':
     web_app.run(debug=True, host='0.0.0.0', port=port_website)
