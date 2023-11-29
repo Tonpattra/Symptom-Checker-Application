@@ -5,14 +5,16 @@ import json
 import requests
 from configuration import *
 import warnings
-
+import pandas as pd
 
 warnings.filterwarnings("ignore")
 question_lung = json.load(open('./data/lung_question.json', 'r'))
 num_quest_lung = len(question_lung)
 question_disease = json.load(open('./data/42_disease_question.json', 'r'))
 num_quest_disease = len(question_disease)
+loaded_data = pkl.load(open('./data/save_image_dict.pkl', 'rb'))
 symptom = pkl.load(open('./data/symptom_name.pkl', 'rb'))
+loaded_description = pd.read_csv('./data/symptom_Description.csv')
 answers = {key: None for key in question_lung.keys()}
 number_symp = len(symptom)
 age = 'No'
@@ -31,7 +33,7 @@ def disease() :
     first_time = request.form['first']
 
     if first_time == 'Yes' :
-        with open("./data/reset_state.json", "r") as file: #for next state request
+        with open("./data/reset_state.json", "r") as file: 
             data_json = json.load(file)
             
     else :
@@ -40,11 +42,14 @@ def disease() :
     url = f'http://{disease_host}:{disease_port}/decision_tree'
     response = requests.post(url, json=data_json)
     temp = response.json()
-    # print(temp)
     try : 
         if int(temp['Question']) == 0 :
             responses = temp['Answer']  
-            return f"<h3>You has a {responses} </h3>"
+            queue = loaded_data[responses][1]
+            with open('static/images/suggest.jpg', 'wb') as f:
+                f.write(queue)
+            description = loaded_description[loaded_description.Disease == responses].Description.item()
+            return render_template('information.html', disea = responses, drescript = description)
         else :    
             responses = temp['Question']
     except :
@@ -52,15 +57,14 @@ def disease() :
     type_var = type(responses).__name__
     
     if type_var == "str" :
-        question = f"Do you have {responses}"
+        question = f"Do you have {' '.join(responses.split('_'))}"
 
     else :
-        question = f"Do you have one of these symptom \t ( {', '.join(responses)} )"    
+        question = f"Do you have one of these symptom \t ( {', '.join([' '.join(i.split('_')) for i in responses])} )"    
 
 
     return render_template('Question_disease.html' , 
                            prompt = question)
-                        #    type_variable = type_var)
 
 @web_app.route('/question_lung', methods=['GET', 'POST'])
 def cancer():
@@ -80,7 +84,6 @@ def cancer():
             print(answers)
             response = requests.post(f'http://{lung_cancer_web}:{str(port_lung)}/process', json=answers)
             return render_template('result.html', percentag = response.json()['Cancer'])
-            # return f"<h3>You has a chances to be a lung cancer {response.json()['Cancer']} percent</h3>"
     first_question = questions[0]
     return render_template('Question.html', 
                            prompt=question_lung[first_question],
@@ -88,7 +91,7 @@ def cancer():
 
 @web_app.route('/find_hospital', methods=['GET', 'POST'])
 def find_hospital() :
-    return render_template('hospital.html', google_api_key=web_app.config['GOOGLE_API_KEY'])
+    return render_template('Nearby_hospital.html', google_api_key=web_app.config['GOOGLE_API_KEY'])
 
 @web_app.route('/document', methods=['GET', 'POST'])
 def knowledge() :

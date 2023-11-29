@@ -2,3 +2,4 @@ Flask==2.2.3
 numpy==1.24.4
 Werkzeug==2.2.3
 requests
+pandas

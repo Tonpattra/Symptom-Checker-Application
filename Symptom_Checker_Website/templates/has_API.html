@@ -2,41 +2,75 @@
 <html>
 <head>
   <title>Find Nearest Hospital</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+
+    #hospital-info {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: 20px auto;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
   <h1>Find Nearest Hospital</h1>
-  <p>Your nearest hospital:</p>
+  <div id="map"></div>
   <div id="hospital-info"></div>
 
   <script>
     function initMap() {
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(function(position) {
-          var userLocation = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
+          var userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-          var map = new google.maps.Map(document.getElementById("hospital-info"), {
+          var map = new google.maps.Map(document.getElementById("map"), {
             center: userLocation,
-            zoom: 15
+            zoom: 12
           });
-
           var service = new google.maps.places.PlacesService(map);
-
           service.nearbySearch({
             location: userLocation,
             radius: 5000,
             type: "hospital"
           }, function(results, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
-              if (results.length > 0) {
-                var hospital = results[0];
-                var hospitalInfo = `<strong>${hospital.name}</strong><br>${hospital.vicinity}`;
-                document.getElementById("hospital-info").innerHTML = hospitalInfo;
-              } else {
-                document.getElementById("hospital-info").innerHTML = "No hospitals found nearby.";
+              var hospitalsInfo = "";
+              for (var i = 0; i < Math.min(results.length, 3); i++) {
+                var hospital = results[i];
+                var distance = google.maps.geometry.spherical.computeDistanceBetween(userLocation, hospital.geometry.location);
+                var distanceInKm = (distance / 1000).toFixed(2);
+                hospitalsInfo += `<strong>${hospital.name}</strong><br>${hospital.vicinity}<br>Distance: ${distanceInKm} km<br><br>`;
+                new google.maps.Marker({
+                  position: hospital.geometry.location,
+                  map: map,
+                  title: hospital.name
+                });
               }
+              if (hospitalsInfo === "") {
+                hospitalsInfo = "No hospitals found nearby.";
+              }
+              document.getElementById("hospital-info").innerHTML = hospitalsInfo;
             } else {
               document.getElementById("hospital-info").innerHTML = "Error: Unable to retrieve hospital information.";
             }
@@ -49,7 +83,6 @@
       }
     }
   </script>
-
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&libraries=places&callback=initMap"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&libraries=places,geometry&callback=initMap"></script>
 </body>
 </html>

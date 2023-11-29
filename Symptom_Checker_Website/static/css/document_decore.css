@@ -8,7 +8,7 @@
 }
 .frame12-layout1-frame12-layout1 {
   width: 100%;
-  height: 859px;
+  height: 100vh; 
   display: flex;
   overflow: hidden;
   position: relative;

@@ -18,7 +18,7 @@
 .frame11-layout2-frame11-layout2 {
   gap: 40px;
   width: 100%;
-  height: 824px;
+  height: 100vh;
   display: flex;
   overflow: hidden;
   position: relative;
@@ -106,13 +106,13 @@
   border-width: 1px;
   border-radius: 5px;
   flex-direction: column;
-  transition: background-color 0.3s, border-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
 }
 
 .frame11-layout2-button-mdsec1:hover {
-  background-color: #ffeedd; /* Example: change background color on hover */
-  border-color: #fa8072; /* Example: change border color on hover */
-  transform: scale(1.05); /* Slightly increase the size */
+  background-color: #ffeedd; 
+  border-color: #fa8072; 
+  transform: scale(1.05); 
 }
 .frame11-layout2-text11 {
   color: var(--dl-color-default-lighttextcolor);
@@ -273,32 +273,28 @@
 }
 
 .frame11-layout2-colmd4:hover {
-  /* Define hover effect here */
-  background-color: #f0f0f0; /* Example: change background color */
-  transform: scale(1.05); /* Example: slightly increase size */
+  background-color: #f0f0f0; 
+  transform: scale(1.05); 
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .frame11-layout2-colmd41:hover {
-  /* Define hover effect here */
-  background-color: #f0f0f0; /* Example: change background color */
-  transform: scale(1.05); /* Example: slightly increase size */
+  background-color: #f0f0f0; 
+  transform: scale(1.05);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .frame11-layout2-colmd42:hover {
-  /* Define hover effect here */
-  background-color: #f0f0f0; /* Example: change background color */
-  transform: scale(1.05); /* Example: slightly increase size */
+  background-color: #f0f0f0; 
+  transform: scale(1.05); 
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
 
 .frame11-layout2-colmd43:hover {
-  /* Define hover effect here */
-  background-color: #f0f0f0; /* Example: change background color */
-  transform: scale(1.05); /* Example: slightly increase size */
+  background-color: #f0f0f0; 
+  transform: scale(1.05); 
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -317,7 +313,7 @@
 }
 
 .frame11-layout2-colmd42:hover .frame11-layout2-carditemsec2 {
-  border-radius: 12px; /* Increased radius on hover */
+  border-radius: 12px;
 }
 .frame11-layout2-flexrow2 {
   gap: 20px;

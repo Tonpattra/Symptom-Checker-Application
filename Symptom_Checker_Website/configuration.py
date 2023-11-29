@@ -6,5 +6,4 @@ lung_cancer_web = "lung-cancer-services"  #docker
 # lung_cancer_web = "127.0.0.1"  #local
 disease_host = '42-disease-services'
 # disease_host = "127.0.0.1"  #local
-
-google_api = 'wait_for_API_complete ja'
+google_api = 'Your_API_KEYs'
