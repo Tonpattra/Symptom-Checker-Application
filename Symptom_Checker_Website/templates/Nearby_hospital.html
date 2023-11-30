@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/hospital_decore.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/hospital_color.css') }}">
   <title>Find Nearest Hospital</title>
+  <style data-tag="reset-style-sheet">
+    html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+  </style>
   <style>
     #google_translate_element {
-        display: none; /* Hide the widget initially */
+        display: none; 
         position: fixed;
         left: 0;
         bottom: 0;
         z-index: 1000;
     }
-</style>
+  </style>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-    }
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
 
-    h1 {
-      text-align: center;
-      color: #333;
-    }
+      }
 
     #map {
       height: 400px;
+      align-items: center;
       width: 100%;
     }
 
@@ -41,11 +46,48 @@
       font-size: 0.9em;
     }
   </style>
+  <link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+  data-tag="font"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+    data-tag="font"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+    data-tag="font"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    data-tag="font"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    data-tag="font"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
+    data-tag="font"
+  />
 </head>
 <body>
-  <h1>Find Nearest Hospital</h1>
+  <div class="frame11-layout2-container">
+  <h1 class="frame11-layout2-text h1">
+    <span>Health service locations</span>
+  </h1>
   <div id="map"></div>
-  <div id="hospital-info"></div>
+  <div id="hospital-info" font-family: Montserrat;></div>
+  <a href="/" class="back-link">
+    <h6 class="frame11-layout3-text02"><span>Back</span></h6></a>
+  </div>
+</div>
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
@@ -54,7 +96,6 @@
   
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   
-  <!-- Script to Apply Saved Language -->
   <script type="text/javascript">
     function triggerLanguageChange(lang) {
       var frame = document.querySelector('.goog-te-menu-frame');
@@ -70,7 +111,7 @@
     window.addEventListener('load', function() {
       var userLanguage = localStorage.getItem('userLanguage');
       if (userLanguage) {
-        setTimeout(function() { triggerLanguageChange(userLanguage); }, 1000); // Delay to allow widget to load
+        setTimeout(function() { triggerLanguageChange(userLanguage); }, 1000); 
       }
     });
   </script>
@@ -88,53 +129,80 @@
 });
 </script>
   <script>
-    function initMap() {
-      if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          var userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    var userLocation, directionsService, directionsRenderer;
 
-          var map = new google.maps.Map(document.getElementById("map"), {
-            center: userLocation,
-            zoom: 12
-          });
-
-          var service = new google.maps.places.PlacesService(map);
-
-          service.nearbySearch({
-            location: userLocation,
-            radius: 5000,
-            type: "hospital"
-          }, function(results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-              var hospitalsInfo = "";
-              for (var i = 0; i < Math.min(results.length, 3); i++) {
-                var hospital = results[i];
-                var distance = google.maps.geometry.spherical.computeDistanceBetween(userLocation, hospital.geometry.location);
-                var distanceInKm = (distance / 1000).toFixed(2);
-
-                hospitalsInfo += `<strong>${hospital.name}</strong><br>${hospital.vicinity}<br>Distance: ${distanceInKm} km<br><br>`;
-
-                new google.maps.Marker({
-                  position: hospital.geometry.location,
-                  map: map,
-                  title: hospital.name
-                });
-              }
-              if (hospitalsInfo === "") {
-                hospitalsInfo = "No hospitals found nearby.";
-              }
-              document.getElementById("hospital-info").innerHTML = hospitalsInfo;
-            } else {
-              document.getElementById("hospital-info").innerHTML = "Error: Unable to retrieve hospital information.";
-            }
-          });
-        }, function(error) {
-          document.getElementById("hospital-info").innerHTML = "Error: Unable to determine your location.";
-        });
-      } else {
-        document.getElementById("hospital-info").innerHTML = "Geolocation is not supported by this browser.";
-      }
+function calculateAndDisplayRoute(start, endString) {
+  var end = new google.maps.LatLng(...endString.split(',').map(Number));
+  directionsService.route({
+    origin: start,
+    destination: end,
+    travelMode: 'DRIVING'
+  }, function(response, status) {
+    if (status === 'OK') {
+      directionsRenderer.setDirections(response);
+    } else {
+      window.alert('Directions request failed due to ' + status);
     }
+  });
+}
+
+function initMap() {
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      directionsService = new google.maps.DirectionsService();
+      directionsRenderer = new google.maps.DirectionsRenderer();
+      var map = new google.maps.Map(document.getElementById("map"), {
+        center: userLocation,
+        zoom: 12
+      });
+      directionsRenderer.setMap(map);
+      // Marker for user's location
+      new google.maps.Marker({
+        position: userLocation,
+        map: map,
+        title: "Your Location",
+        icon: {
+          url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png" 
+        }
+      });
+
+      var service = new google.maps.places.PlacesService(map);
+      service.nearbySearch({
+        location: userLocation,
+        radius: 8000,
+        type: "hospital"
+      }, function(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          var hospitalsInfo = "";
+          for (var i = 0; i < Math.min(results.length, 3); i++) {
+            var hospital = results[i];
+            var distance = google.maps.geometry.spherical.computeDistanceBetween(userLocation, hospital.geometry.location);
+            var distanceInKm = (distance / 1000).toFixed(2);
+
+            hospitalsInfo += `<a href="#" onclick="calculateAndDisplayRoute(directionsService, directionsRenderer, userLocation, '${hospital.geometry.location}'); return false;"><strong>${hospital.name}</strong></a><br>${hospital.vicinity}<br>Distance: ${distanceInKm} km<br><br>`;
+
+            new google.maps.Marker({
+              position: hospital.geometry.location,
+              map: map,
+              title: hospital.name
+            });
+          }
+          if (hospitalsInfo === "") {
+            hospitalsInfo = "No hospitals found nearby.";
+          }
+          document.getElementById("hospital-info").innerHTML = hospitalsInfo;
+        } else {
+          document.getElementById("hospital-info").innerHTML = "Error: Unable to retrieve hospital information.";
+        }
+      });
+    }, function(error) {
+      document.getElementById("hospital-info").innerHTML = "Error: Unable to determine your location.";
+    });
+  } else {
+    document.getElementById("hospital-info").innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
   </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&libraries=places,geometry&callback=initMap"></script>
 </body>

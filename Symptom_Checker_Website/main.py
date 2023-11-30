@@ -77,7 +77,7 @@ def cancer():
 
         if next_index < len(questions):
             next_question = questions[next_index]
-            return render_template('Question.html', 
+            return render_template('Question_lung.html', 
                                    prompt=question_lung[next_question],
                                    index=next_index)
         else:
@@ -85,7 +85,7 @@ def cancer():
             response = requests.post(f'http://{lung_cancer_web}:{str(port_lung)}/process', json=answers)
             return render_template('result.html', percentag = response.json()['Cancer'])
     first_question = questions[0]
-    return render_template('Question.html', 
+    return render_template('Question_lung.html', 
                            prompt=question_lung[first_question],
                            index=0)
 

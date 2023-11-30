@@ -2,26 +2,14 @@ version: '3'
 
 services:
   web-service:
-    build:
-      context: ./Symptom_Checker_Website
-    volumes:
-      - ./Symptom_Checker_Website:/app
+    image: tpattra/symptom_checker-web-service
     ports:
-      - "800:800"
+      - "8000:8000"
   lung-cancer-services:
-      build:
-        context: ./Classification_services/lung-cancer
+      image: tpattra/symptom_checker-lung-cancer-services
       ports:
       - "5000:5000"
   42-disease-services:
-      build:
-        context: ./Classification_services/42-disease
+      image: tpattra/symptom_checker-42-disease-services
       ports:
       - "8080:8080"
-
-  # ml-flow-model:
-  #   build:
-  #     context: ./ML_flow
-  #   volumes:
-  #     - ./ML_flow:/app
-
