@@ -15,6 +15,7 @@ num_quest_disease = len(question_disease)
 loaded_data = pkl.load(open('./data/save_image_dict.pkl', 'rb'))
 symptom = pkl.load(open('./data/symptom_name.pkl', 'rb'))
 loaded_description = pd.read_csv('./data/symptom_Description.csv')
+mapped_question = pkl.load(open('./data/question_map.pkl', 'rb'))
 answers = {key: None for key in question_lung.keys()}
 number_symp = len(symptom)
 age = 'No'
@@ -57,7 +58,10 @@ def disease() :
     type_var = type(responses).__name__
     
     if type_var == "str" :
-        question = f"Do you have {' '.join(responses.split('_'))}"
+        try :
+            question = mapped_question[responses]
+        except :
+            question = f"Do you have {' '.join(responses.split('_'))}"
 
     else :
         question = f"Do you have one of these symptom \t ( {', '.join([' '.join(i.split('_')) for i in responses])} )"    
