@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/663710528065248830/9c81b06dc4114b08841c40894d8584ca/artifacts
+end_time: 1701349908542
+entry_point_name: ''
+experiment_id: '663710528065248830'
+lifecycle_stage: active
+run_id: 9c81b06dc4114b08841c40894d8584ca
+run_name: Naive Bayes
+run_uuid: 9c81b06dc4114b08841c40894d8584ca
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1701349906781
+status: 3
+tags: []
+user_id: ML_flow

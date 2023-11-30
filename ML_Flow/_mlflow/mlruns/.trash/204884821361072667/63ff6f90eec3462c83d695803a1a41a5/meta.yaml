@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/204884821361072667/63ff6f90eec3462c83d695803a1a41a5/artifacts
+deleted_time: 1701346099675
+end_time: 1701346085575
+entry_point_name: ''
+experiment_id: '204884821361072667'
+lifecycle_stage: deleted
+run_id: 63ff6f90eec3462c83d695803a1a41a5
+run_name: DecisionTree
+run_uuid: 63ff6f90eec3462c83d695803a1a41a5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1701346083780
+status: 3
+tags: []
+user_id: ML_flow

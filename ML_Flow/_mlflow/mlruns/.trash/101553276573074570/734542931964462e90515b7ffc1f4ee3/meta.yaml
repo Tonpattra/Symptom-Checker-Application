@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/101553276573074570/734542931964462e90515b7ffc1f4ee3/artifacts
+deleted_time: 1701349852770
+end_time: 1701348911828
+entry_point_name: ''
+experiment_id: '101553276573074570'
+lifecycle_stage: deleted
+run_id: 734542931964462e90515b7ffc1f4ee3
+run_name: bustling-fish-102
+run_uuid: 734542931964462e90515b7ffc1f4ee3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1701348911799
+status: 4
+tags: []
+user_id: ML_flow

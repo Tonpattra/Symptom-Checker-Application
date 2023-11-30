@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/101553276573074570/fd6bc202a22a4045a74f19a3cc953d3a/artifacts
+deleted_time: 1701349852770
+end_time: 1701349763617
+entry_point_name: ''
+experiment_id: '101553276573074570'
+lifecycle_stage: deleted
+run_id: fd6bc202a22a4045a74f19a3cc953d3a
+run_name: unleashed-dog-399
+run_uuid: fd6bc202a22a4045a74f19a3cc953d3a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1701349761337
+status: 3
+tags: []
+user_id: ML_flow

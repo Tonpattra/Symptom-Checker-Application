@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/101553276573074570/97961cf4373d4888944935ede0b66654/artifacts
+deleted_time: 1701349852770
+end_time: 1701349176752
+entry_point_name: ''
+experiment_id: '101553276573074570'
+lifecycle_stage: deleted
+run_id: 97961cf4373d4888944935ede0b66654
+run_name: stately-mole-333
+run_uuid: 97961cf4373d4888944935ede0b66654
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1701349176727
+status: 4
+tags: []
+user_id: ML_flow

@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/101553276573074570/2fcb7d6b1df24b87a1fad416e1e9d733/artifacts
+deleted_time: 1701349852770
+end_time: 1701349606399
+entry_point_name: ''
+experiment_id: '101553276573074570'
+lifecycle_stage: deleted
+run_id: 2fcb7d6b1df24b87a1fad416e1e9d733
+run_name: amusing-kite-79
+run_uuid: 2fcb7d6b1df24b87a1fad416e1e9d733
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1701349606381
+status: 4
+tags: []
+user_id: ML_flow

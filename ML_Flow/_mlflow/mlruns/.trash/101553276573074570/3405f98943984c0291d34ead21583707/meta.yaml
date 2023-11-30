@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/101553276573074570/3405f98943984c0291d34ead21583707/artifacts
+deleted_time: 1701349852770
+end_time: 1701349664975
+entry_point_name: ''
+experiment_id: '101553276573074570'
+lifecycle_stage: deleted
+run_id: 3405f98943984c0291d34ead21583707
+run_name: unruly-snail-404
+run_uuid: 3405f98943984c0291d34ead21583707
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1701349664960
+status: 4
+tags: []
+user_id: ML_flow

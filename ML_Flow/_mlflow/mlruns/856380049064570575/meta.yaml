@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/856380049064570575
+creation_time: 1701346114608
+experiment_id: '856380049064570575'
+last_update_time: 1701346114608
+lifecycle_stage: active
+name: Disease_Predictor

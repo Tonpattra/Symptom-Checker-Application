@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/101553276573074570/464a0d415c4d4676b33ccb29631d627f/artifacts
+deleted_time: 1701349852770
+end_time: 1701349761327
+entry_point_name: ''
+experiment_id: '101553276573074570'
+lifecycle_stage: deleted
+run_id: 464a0d415c4d4676b33ccb29631d627f
+run_name: abundant-lynx-468
+run_uuid: 464a0d415c4d4676b33ccb29631d627f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1701349761287
+status: 3
+tags: []
+user_id: ML_flow

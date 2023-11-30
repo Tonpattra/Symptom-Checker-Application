@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/101553276573074570/f2dc08281c3e4647ac7d4ec7a146a69b/artifacts
+deleted_time: 1701349852770
+end_time: 1701349606370
+entry_point_name: ''
+experiment_id: '101553276573074570'
+lifecycle_stage: deleted
+run_id: f2dc08281c3e4647ac7d4ec7a146a69b
+run_name: omniscient-squid-841
+run_uuid: f2dc08281c3e4647ac7d4ec7a146a69b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1701349606298
+status: 3
+tags: []
+user_id: ML_flow

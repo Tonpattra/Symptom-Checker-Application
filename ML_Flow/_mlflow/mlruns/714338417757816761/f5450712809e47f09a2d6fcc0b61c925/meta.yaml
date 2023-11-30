@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/714338417757816761/f5450712809e47f09a2d6fcc0b61c925/artifacts
+end_time: 1701353785521
+entry_point_name: ''
+experiment_id: '714338417757816761'
+lifecycle_stage: active
+run_id: f5450712809e47f09a2d6fcc0b61c925
+run_name: MultinomialNB
+run_uuid: f5450712809e47f09a2d6fcc0b61c925
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1701353783768
+status: 3
+tags: []
+user_id: ML_flow
